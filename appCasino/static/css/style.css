@@ -1,0 +1,7 @@
+body{
+    background-color: rgb(30, 30, 194);
+}
+h1, h2{
+    color: whitesmoke;
+    display: inline-block;
+}

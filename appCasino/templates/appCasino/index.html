@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/miGrilla.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tu Oro: {{request.session.contador}}</h1>
+    <form action="/procesar/" method="post">
+        {% csrf_token %}
+        <h3>Granja</h3>
+        <p>gana de 10 a 20 monedas</p>
+        <button type="submit">Granja</button>
+        <input type="hidden" name="opcion" value="granja">
+    </form>
+    <div class="container">
+        
+    </div>
+    <form action="/procesar/" method="post">
+        {% csrf_token %}
+        <h3>Caverna</h3>
+        <p>gana de 5 a 10 monedas</p>
+        <button type="submit">Caverna</button>
+        <input type="hidden" name="opcion" value="caverna">
+    </form>
+    <form action="/procesar/" method="post">
+        {% csrf_token %}
+        <h3>Casa</h3>
+        <p>gana de 2 a 5 monedas</p>
+        <button type="submit">Casa</button>
+        <input type="hidden" name="opcion" value="casa">
+    </form>
+    <form action="/procesar/" method="post">
+        {% csrf_token %}
+        <h3>Casino</h3>
+        <p>gana de 2 a 5 monedas</p>
+        <button type="submit">Casino</button>
+        <input type="hidden" name="opcion" value="casino">
+    </form>
+</body>
+</html>
