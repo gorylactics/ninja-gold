@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Document</title>
 </head>
+
 <body>
+    <a href="/reseteo/">reseteo </a>
     <h1>Tu Oro: {{request.session.contador}}</h1>
     <form action="/procesar/" method="post">
         {% csrf_token %}
@@ -39,17 +42,17 @@
         <button type="submit">Casino</button>
         <input type="hidden" name="opcion" value="casino">
     </form>
-    
-        <ul>
-            <li>
-                {% for elLog in request.session.log %}
-                    <p class="{{elLog.color}}">{{elLog.intento}}</p>
-                    <p class="{{elLog.color}}">{{elLog.fecha}}</p>
-                    <p>{{elLog.monedas}}</p>
-                    <p>{{elLog.palabra}}</p>
-                    <p>{{elLog.jugada}}</p>
-                {% endfor %}
-            </li>
-        </ul>
+
+    <ul>
+        <li>
+            {% for elLog in request.session.log %}
+            <p class="{{elLog.color}}">Intento num:{{elLog.jugada}},
+                Has {{elLog.palabra}} {{elLog.monedas}} en la opcion: {{elLog.ubicacion}} tu total es: {{elLog.total}} el dia
+                {{elLog.fecha}}</p>
+
+            {% endfor %}
+        </li>
+    </ul>
 </body>
+
 </html>

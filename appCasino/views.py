@@ -41,21 +41,26 @@ def procesar(request):
     informacion_a_entregar = {
         
         'jugada'    : request.session['intento'],
-        'ubicacion' : request.POST['opcion'],
-        'fecha'     : time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()),
         'monedas'   : numero,
+        'ubicacion' : request.POST['opcion'],
+        'total'     : request.session['contador'],
         'palabra'   : 'ganaste' if numero > 0 else 'perdiste',
         'color'     : 'verde' if numero > 0 else 'rojo',
+        'fecha'     : time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()),
     }
 
     request.session['log'].append(informacion_a_entregar)
     request.session.save()
+    print(request.POST)
     return redirect('/')
 
-# def reseteo(request):
-#     if 'contador' in request.session:
-#         request.session['contador'] = 0
-#     return redirect('')
+def reseteo(request):
+    if 'contador' and 'log' and 'intento' in request.session:
+        del request.session['contador']
+        del request.session['log']
+        del request.session['intento']
+        print(request.POST)
+    return redirect('/')
 
 
 
