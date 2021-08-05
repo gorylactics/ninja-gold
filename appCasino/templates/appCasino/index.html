@@ -18,9 +18,6 @@
         <button type="submit">Granja</button>
         <input type="hidden" name="opcion" value="granja">
     </form>
-    <div class="container">
-        
-    </div>
     <form action="/procesar/" method="post">
         {% csrf_token %}
         <h3>Caverna</h3>
@@ -42,16 +39,17 @@
         <button type="submit">Casino</button>
         <input type="hidden" name="opcion" value="casino">
     </form>
-
     
         <ul>
             <li>
                 {% for elLog in request.session.log %}
-                <p>{{elLog.fecha}}</p>
+                    <p class="{{elLog.color}}">{{elLog.intento}}</p>
+                    <p class="{{elLog.color}}">{{elLog.fecha}}</p>
+                    <p>{{elLog.monedas}}</p>
+                    <p>{{elLog.palabra}}</p>
+                    <p>{{elLog.jugada}}</p>
                 {% endfor %}
             </li>
         </ul>
-
-    
 </body>
 </html>
