@@ -42,5 +42,16 @@
         <button type="submit">Casino</button>
         <input type="hidden" name="opcion" value="casino">
     </form>
+
+    
+        <ul>
+            <li>
+                {% for elLog in request.session.log %}
+                <p>{{elLog.fecha}}</p>
+                {% endfor %}
+            </li>
+        </ul>
+
+    
 </body>
 </html>

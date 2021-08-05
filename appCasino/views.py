@@ -1,5 +1,6 @@
 from django.shortcuts import render , redirect
 import random
+import time
 
 def index(request):
     
@@ -8,10 +9,13 @@ def index(request):
 def procesar(request):
     if request.POST['opcion'] == 'granja':
         numero = random.randint(10, 20)
+    
     if request.POST['opcion'] == 'caverna':
         numero = random.randint(5, 10)
+    
     if request.POST['opcion'] == 'casa':
         numero = random.randint(2, 5)
+    
     if request.POST['opcion'] == 'casino':
         numero = random.randint(0, 50)
         operacion = random.randint(1, 2)
@@ -25,6 +29,26 @@ def procesar(request):
     else:
         request.session['contador'] = numero
     
+    if not ('log' in request.session):
+        request.session['log'] = []
+    
+
+    informacion_a_entregar = {
+        'ubicacion' : request.POST['opcion'],
+        'fecha' :  time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()),
+        # 'textLog' : (f'ganaste: {numero} monedas desde: {ubicacion} {fecha}')
+    }
+
+    # ubicacion = request.POST['opcion']
+    # fecha =  time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
+    # textLog = (f'ganaste: {numero} monedas desde: {ubicacion} {fecha}')
+
+    request.session['log'].append(informacion_a_entregar)
+    # request.session['log'].append(textLog)
+    request.session.save()
+
+    
+
     return redirect('/')
 
 # def reseteo(request):

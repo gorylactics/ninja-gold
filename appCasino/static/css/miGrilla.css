@@ -15,7 +15,7 @@
 *{
     margin: 0;
     padding: 0;
-    outline: 1.7px dotted rgb(122, 168, 53); 
+    /* outline: 1.7px dotted rgb(122, 168, 53);  */
 }
 body{
     box-sizing: border-box;

@@ -5,3 +5,10 @@ h1, h2{
     color: whitesmoke;
     display: inline-block;
 }
+.rojo{
+    color: red;
+}
+
+.verde{
+    color: green;
+}
