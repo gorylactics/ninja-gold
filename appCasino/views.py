@@ -44,7 +44,7 @@ def procesar(request):
         'monedas'   : numero,
         'ubicacion' : request.POST['opcion'],
         'total'     : request.session['contador'],
-        'palabra'   : 'ganaste' if numero > 0 else 'perdiste',
+        'palabra'   : 'ganado' if numero > 0 else 'perdido',
         'color'     : 'verde' if numero > 0 else 'rojo',
         'fecha'     : time.strftime('%Y-%m-%d %H:%M:%S', time.localtime()),
     }

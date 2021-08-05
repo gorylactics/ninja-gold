@@ -12,3 +12,31 @@ h1, h2{
 .verde{
     color: green;
 }
+.superior{
+    background-color: purple;
+}
+
+h1{
+    background-color: tomato;
+    /* width: 100vw; */
+
+    
+}
+
+
+.cabecera{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+.resultado{
+    background-color: orange;
+}
+
+ul {
+    list-style: none;
+}

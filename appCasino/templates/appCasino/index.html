@@ -43,16 +43,25 @@
         <input type="hidden" name="opcion" value="casino">
     </form>
 
-    <ul>
-        <li>
-            {% for elLog in request.session.log %}
-            <p class="{{elLog.color}}">Intento num:{{elLog.jugada}},
-                Has {{elLog.palabra}} {{elLog.monedas}} en la opcion: {{elLog.ubicacion}} tu total es: {{elLog.total}} el dia
-                {{elLog.fecha}}</p>
-
-            {% endfor %}
-        </li>
-    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col xl-12 resultado">
+                <ul>
+                    <li>
+                        {% for elLog in request.session.log %}
+                        <p class="{{elLog.color}}">Intento num:
+                                {{elLog.jugada}},
+                            Has {{elLog.palabra}} 
+                                {{elLog.monedas}} en la opcion: 
+                                {{elLog.ubicacion}} tu total es: 
+                                {{elLog.total}} el dia
+                                {{elLog.fecha}}</p>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
