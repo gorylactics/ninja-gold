@@ -12,56 +12,82 @@
 </head>
 
 <body>
-    <a href="/reseteo/">reseteo </a>
-    <h1>Tu Oro: {{request.session.contador}}</h1>
-    <form action="/procesar/" method="post">
-        {% csrf_token %}
-        <h3>Granja</h3>
-        <p>gana de 10 a 20 monedas</p>
-        <button type="submit">Granja</button>
-        <input type="hidden" name="opcion" value="granja">
-    </form>
-    <form action="/procesar/" method="post">
-        {% csrf_token %}
-        <h3>Caverna</h3>
-        <p>gana de 5 a 10 monedas</p>
-        <button type="submit">Caverna</button>
-        <input type="hidden" name="opcion" value="caverna">
-    </form>
-    <form action="/procesar/" method="post">
-        {% csrf_token %}
-        <h3>Casa</h3>
-        <p>gana de 2 a 5 monedas</p>
-        <button type="submit">Casa</button>
-        <input type="hidden" name="opcion" value="casa">
-    </form>
-    <form action="/procesar/" method="post">
-        {% csrf_token %}
-        <h3>Casino</h3>
-        <p>gana de 2 a 5 monedas</p>
-        <button type="submit">Casino</button>
-        <input type="hidden" name="opcion" value="casino">
-    </form>
 
-    <div class="container">
+    <div class="container primero">
         <div class="row">
-            <div class="col xl-12 resultado">
-                <ul>
-                    <li>
+            <div class="col md-12 lg-12 xl-12 xxl-12 cabecera">
+                <h1></h1>
+                <h1>Tu Oro:{{request.session.contador}}</h1>
+                
+                <br>
+                <a href="/reseteo/">reseteo</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container segundo">
+        <div class="row">
+            <div class="col md-12 lg-12 xl-12 xxl-12 ">
+                <div class="col md-3 lg-3 xl-3 xxl-3 segundo">
+                    <form action="/procesar/" method="post">
+                        {% csrf_token %}
+                        <h3>Granja</h3>
+                        <p>gana de 10 a 20 monedas</p>
+                        <button type="submit">Granja</button>
+                        <input type="hidden" name="opcion" value="granja">
+                    </form>
+                </div>
+                <div class="col md-3 lg-3 xl-3 xxl-3">
+                    <form action="/procesar/" method="post">
+                        {% csrf_token %}
+                        <h3>Caverna</h3>
+                        <p>gana de 5 a 10 monedas</p>
+                        <button type="submit">Caverna</button>
+                        <input type="hidden" name="opcion" value="caverna">
+                    </form>
+                </div>
+                <div class="col md-3 lg-3 xl-3 xxl-3">
+                    <form action="/procesar/" method="post">
+                        {% csrf_token %}
+                        <h3>Casa</h3>
+                        <p>gana de 2 a 5 monedas</p>
+                        <button type="submit">Casa</button>
+                        <input type="hidden" name="opcion" value="casa">
+                    </form>
+                </div>
+                <div class="col md-3 lg-3 xl-3 xxl-3">
+                    <form action="/procesar/" method="post">
+                        {% csrf_token %}
+                        <h3>Casino</h3>
+                        <p>gana de 2 a 5 monedas</p>
+                        <button type="submit">Casino</button>
+                        <input type="hidden" name="opcion" value="casino">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container tercero">
+        <div class="row">
+            <div class="col xl-12">
+                <ul class=" resultado">
+                    <li class="item">
                         {% for elLog in request.session.log %}
-                        <p class="{{elLog.color}}">Intento num:
-                                {{elLog.jugada}},
+                        <p class="{{elLog.color}}">Intento: 
+                            {{elLog.jugada}}
                             Has {{elLog.palabra}} 
-                                {{elLog.monedas}} en la opcion: 
-                                {{elLog.ubicacion}} tu total es: 
-                                {{elLog.total}} el dia
-                                {{elLog.fecha}}</p>
+                            {{elLog.monedas}} en: 
+                            {{elLog.ubicacion}} tu total es: 
+                            {{elLog.total}} el dia
+                            {{elLog.fecha}}
                         {% endfor %}
+                        </p>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-</body>
 
+</body>
 </html>
